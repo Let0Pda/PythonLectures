@@ -1,2 +1,2 @@
-# PytonLectures
+# Pyton Lectures
 Лекции Pyton
