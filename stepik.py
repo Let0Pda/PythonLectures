@@ -8,11 +8,11 @@ c = int(input())
 # d = int(input())
 summa = 0
 if a > 0:
-    summa = summa + a
+    summa += a
 if b > 0:
-    summa = summa + b
+    summa += b
 if c > 0:
-    summa = summa + c
+    summa += c
 print(summa)
 # ab = 0
 # cd = 0

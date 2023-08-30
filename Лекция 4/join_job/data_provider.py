@@ -6,17 +6,11 @@ def get_temperature(sensor):
 
 
 def get_preassure(sensor):
-    if sensor:
-        return randint(720, 750)
-    else:
-        return randint(750, 770)
+    return randint(720, 750) if sensor else randint(750, 770)
 
 
 def get_wind_speed(sensor):
-    if sensor == 1:
-        return randint(0, 30)
-    else:
-        return randint(30, 50)
+    return randint(0, 30) if sensor == 1 else randint(30, 50)
 
 def data_collection(sensor = 1):
     return (get_temperature(sensor), get_preassure(sensor), get_wind_speed(sensor))
