@@ -4,15 +4,14 @@ from user_interface import pressure_view
 
 def create(device = 1):
     style = 'style="font-size:30px;"'
-    html = '<html>\n  <head></head>\n  <body>\n'
-    html += '    <p {}>Temperature: {} c</p>\n'\
-        .format(style, temperature_view(device))
-    html += '    <p {}>Wind_speed: {} m/s</p>\n'\
-        .format(style, wind_speed_view(device))
-    html += '    <p {}>Pressure: {} mmHg</p>\n'\
-        .format(style, pressure_view(device))
+    html = (
+        '<html>\n  <head></head>\n  <body>\n'
+        + f'    <p {style}>Temperature: {temperature_view(device)} c</p>\n'
+    )
+    html += f'    <p {style}>Wind_speed: {wind_speed_view(device)} m/s</p>\n'
+    html += f'    <p {style}>Pressure: {pressure_view(device)} mmHg</p>\n'
     html += '  </body>\n</html>'
-    
+
     with open('index.html', 'w') as page:
         page.write(html)
 
@@ -23,15 +22,14 @@ def create(device = 1):
 def new_create(data ,device = 1):
     t, p, w = data
     style = 'style="font-size:30px;"'
-    html = '<html>\n  <head></head>\n  <body>\n'
-    html += '    <p {}>Temperature: {} c</p>\n'\
-        .format(style, t)
-    html += '    <p {}>Wind_speed: {} m/s</p>\n'\
-        .format(style, w)
-    html += '    <p {}>Pressure: {} mmHg</p>\n'\
-        .format(style, p)
+    html = (
+        '<html>\n  <head></head>\n  <body>\n'
+        + f'    <p {style}>Temperature: {t} c</p>\n'
+    )
+    html += f'    <p {style}>Wind_speed: {w} m/s</p>\n'
+    html += f'    <p {style}>Pressure: {p} mmHg</p>\n'
     html += '  </body>\n</html>'
-    
+
     with open('new_index.html', 'w') as page:
         page.write(html)
 

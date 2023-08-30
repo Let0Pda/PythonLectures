@@ -4,13 +4,12 @@ from user_interface import pressure_view
 
 
 def create(device=1):
-    xml = '<xml>\n'
-    xml += '    <temperature units = "c">{}</temperature>\n'\
-        .format(temperature_view(device))
-    xml += '    <wind_speed_view units = "m/s">{}</wind_speed_view>\n'\
-        .format(wind_speed_view(device))
-    xml += '    <pressure units = "mmHg">{}</pressure>\n'\
-        .format(pressure_view(device))
+    xml = (
+        '<xml>\n'
+        + f'    <temperature units = "c">{temperature_view(device)}</temperature>\n'
+    )
+    xml += f'    <wind_speed_view units = "m/s">{wind_speed_view(device)}</wind_speed_view>\n'
+    xml += f'    <pressure units = "mmHg">{pressure_view(device)}</pressure>\n'
     xml += '</xml>'
 
     with open('data.xml', 'w') as page:
@@ -22,13 +21,9 @@ def create(device=1):
 def new_create(data, device = 1):
     t, p, w = data
     t = t * 1.8 + 32
-    xml = '<xml>\n'
-    xml += '    <temperature units = "f">{}</temperature>\n'\
-        .format(t)
-    xml += '    <wind_speed_view units = "m/s">{}</wind_speed_view>\n'\
-        .format(w)
-    xml += '    <pressure units = "mmHg">{}</pressure>\n'\
-        .format(p)
+    xml = '<xml>\n' + f'    <temperature units = "f">{t}</temperature>\n'
+    xml += f'    <wind_speed_view units = "m/s">{w}</wind_speed_view>\n'
+    xml += f'    <pressure units = "mmHg">{p}</pressure>\n'
     xml += '</xml>'
 
     with open('new_data.xml', 'w') as page:
